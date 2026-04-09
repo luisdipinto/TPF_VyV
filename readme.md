@@ -17,3 +17,7 @@ Se utilizó el modelo Gemini (IA) para analizar el código base inicial (`src/ma
 
 **Acciones implementadas:**
 Ambas sugerencias fueron evaluadas como positivas desde el punto de vista del hardware y del uso eficiente de recursos en C++, por lo que fueron implementadas en el commit correspondiente.
+
+## Requerimientos del Sistema y Trazabilidad (TDD)
+- **REQ-01 (Inicialización):** El sistema debe permitir inicializar una tira LED RGB y establecer su estado lógico inicial en apagado (LOW).
+- **REQ-02 (Control de Color):** El sistema debe permitir cambiar el estado lógico de los canales RGB para representar diferentes colores.

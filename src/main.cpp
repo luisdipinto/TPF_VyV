@@ -1,26 +1,14 @@
 #include <Arduino.h>
 
-// Pines de la tira LED RGB
-constexpr uint8_t pinLedRojo = 15;
-constexpr uint8_t pinLedVerde = 2;
-constexpr uint8_t pinLedAzul = 4;
+#include "ControladorRGB.h"
 
-void configurarPines() {
-    // Apagar LEDs por defecto (asumiendo lógica positiva)
-    digitalWrite(pinLedRojo, LOW);
-    digitalWrite(pinLedVerde, LOW);
-    digitalWrite(pinLedAzul, LOW);
-
-    // Configurar como salidas
-    pinMode(pinLedRojo, OUTPUT);
-    pinMode(pinLedVerde, OUTPUT);
-    pinMode(pinLedAzul, OUTPUT);
-}
+// Instanciamos nuestro objeto controlador con los pines del ESP32
+ControladorRGB tiraLed(15, 2, 4);
 
 void setup() {
     Serial.begin(115200);
-    configurarPines();
-    Serial.println("Iniciando ESP32 RGB Web Server...");
+    tiraLed.inicializar();
+    Serial.println("Iniciando ESP32 RGB Web Server... (Librería validada)");
 }
 
 void loop() {
