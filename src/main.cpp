@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Luis Di Pinto
+ * Este código está licenciado bajo la Licencia MIT.
+ * Ver el archivo LICENSE en la raíz del proyecto para más detalles.
+ */
+
 #include <Arduino.h>
 
 #include "ControladorRGB.h"

@@ -1,0 +1,7 @@
+PROJECT_NAME           = "ESP32 RGB Web Server"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = src lib
+RECURSIVE              = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+OPTIMIZE_OUTPUT_FOR_C  = YES
