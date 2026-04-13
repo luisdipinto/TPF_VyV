@@ -21,3 +21,35 @@ Ambas sugerencias fueron evaluadas como positivas desde el punto de vista del ha
 ## Requerimientos del Sistema y Trazabilidad (TDD)
 - **REQ-01 (Inicialización):** El sistema debe permitir inicializar una tira LED RGB y establecer su estado lógico inicial en apagado (LOW).
 - **REQ-02 (Control de Color):** El sistema debe permitir cambiar el estado lógico de los canales RGB para representar diferentes colores.
+- **REQ-03 (Control Individual):** El sistema debe permitir encender y apagar cada canal de color (Rojo, Verde, Azul) de forma independiente, manteniendo el registro de su estado lógico.
+
+## Documentación y Licencia
+- [cite_start]**Documentación:** El código cuenta con documentación de API completa en formato Doxygen. Se provee el archivo `Doxyfile` configurado para generar la documentación HTML a partir de los directorios fuente.
+- [cite_start]**Licencia:** El proyecto y todo el código propio se distribuyen bajo la licencia MIT. Se incluye el archivo `LICENSE` detallado y las cabeceras de Copyright correspondientes en cada archivo fuente.
+
+## Pruebas de Aceptación
+Las pruebas de aceptación se realizan de manera manual comprobando la interacción del sistema final desde la perspectiva del usuario (navegador web).
+
+### 1. Flujo Principal (Camino Feliz)
+- **Condición Inicial:** ESP32 conectado a la red WiFi.
+- **Acción:** El usuario ingresa la dirección IP del ESP32 en su navegador web, visualiza el panel de control y presiona el botón "Encender (Blanco)".
+- **Resultado Esperado:** La página web se recarga y la tira LED RGB física se enciende correctamente.
+- **Estado:** PASADO.
+
+### 2. Flujo Alternativo (Ruta Inexistente)
+- **Condición Inicial:** ESP32 corriendo el servidor web normalmente.
+- **Acción:** El usuario ingresa manualmente una ruta no programada, por ejemplo: `http://<IP_ESP32>/cualquiercosa`.
+- **Resultado Esperado:** El sistema no se bloquea. El servidor captura la petición y devuelve un mensaje de error "Error 404: Ruta no encontrada en el ESP32." en texto plano.
+- **Estado:** PASADO.
+
+### 3. Flujo de Excepción (Fallo de Red)
+- **Condición Inicial:** ESP32 apagado. El enrutador WiFi principal está apagado o las credenciales ingresadas en el código son incorrectas.
+- **Acción:** Se energiza el ESP32.
+- **Resultado Esperado:** El sistema intenta conectar durante un tiempo de espera (timeout). Al fallar, aborta el inicio del servidor, reporta "Fallo la conexión WiFi" por el puerto Serie, y entra en un estado seguro manteniendo la tira LED apagada y sin colgar el procesador.
+- **Estado:** PASADO.
+
+### 4. Flujo Principal Expandido (Control Individual REQ-03)
+- **Condición Inicial:** ESP32 conectado a la red WiFi y LEDs apagados.
+- **Acción:** El usuario presiona el botón "Rojo ON", verifica el estado físico, y luego presiona "Rojo OFF". Repite la operación para los canales Verde y Azul.
+- **Resultado Esperado:** Cada canal físico enciende y apaga de forma completamente independiente sin afectar a los demás colores.
+- **Estado:** PASADO.

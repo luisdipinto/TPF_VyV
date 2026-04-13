@@ -23,6 +23,29 @@ void test_req_01_estado_inicial_apagado(void) {
     TEST_ASSERT_EQUAL(LOW, led.getEstadoAzul());
 }
 
+// Prueba trazada al REQ-03
+void test_req_03_control_individual(void) {
+    led.inicializar();
+
+    // Probamos el canal Rojo
+    led.encenderRojo();
+    TEST_ASSERT_EQUAL(HIGH, led.getEstadoRojo());
+    led.apagarRojo();
+    TEST_ASSERT_EQUAL(LOW, led.getEstadoRojo());
+
+    // Probamos el canal Verde
+    led.encenderVerde();
+    TEST_ASSERT_EQUAL(HIGH, led.getEstadoVerde());
+    led.apagarVerde();
+    TEST_ASSERT_EQUAL(LOW, led.getEstadoVerde());
+
+    // Probamos el canal Azul
+    led.encenderAzul();
+    TEST_ASSERT_EQUAL(HIGH, led.getEstadoAzul());
+    led.apagarAzul();
+    TEST_ASSERT_EQUAL(LOW, led.getEstadoAzul());
+}
+
 void setup() {
     delay(2000);  // Dar tiempo al puerto serial para iniciar
     UNITY_BEGIN();

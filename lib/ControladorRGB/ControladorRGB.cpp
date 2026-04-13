@@ -29,3 +29,33 @@ void ControladorRGB::inicializar() {
 uint8_t ControladorRGB::getEstadoRojo() const { return estadoRojo; }
 uint8_t ControladorRGB::getEstadoVerde() const { return estadoVerde; }
 uint8_t ControladorRGB::getEstadoAzul() const { return estadoAzul; }
+
+void ControladorRGB::encenderRojo() {
+    digitalWrite(pinRojo, HIGH);
+    estadoRojo = HIGH;
+}
+
+void ControladorRGB::apagarRojo() {
+    digitalWrite(pinRojo, LOW);
+    estadoRojo = LOW;
+}
+
+void ControladorRGB::encenderVerde() {
+    digitalWrite(pinVerde, HIGH);
+    estadoVerde = HIGH;
+}
+
+void ControladorRGB::apagarVerde() {
+    digitalWrite(pinVerde, LOW);
+    estadoVerde = LOW;
+}
+
+void ControladorRGB::encenderAzul() {
+    digitalWrite(pinAzul, HIGH);
+    estadoAzul = HIGH;
+}
+
+void ControladorRGB::apagarAzul() {
+    digitalWrite(pinAzul, LOW);
+    estadoAzul = LOW;
+}

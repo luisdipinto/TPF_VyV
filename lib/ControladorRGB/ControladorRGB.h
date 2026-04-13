@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2026 Luis Di Pinto
+ * Este código está licenciado bajo la Licencia MIT.
+ * Ver el archivo LICENSE en la raíz del proyecto para más detalles.
+ */
+
 #ifndef CONTROLADOR_RGB_H
 #define CONTROLADOR_RGB_H
 
@@ -48,6 +54,36 @@ class ControladorRGB {
      * @return Estado del pin (HIGH o LOW).
      */
     uint8_t getEstadoAzul() const;
+
+    /**
+     * @brief Enciende el canal rojo actualizando su estado interno.
+     */
+    void encenderRojo();
+
+    /**
+     * @brief Apaga el canal rojo actualizando su estado interno.
+     */
+    void apagarRojo();
+
+    /**
+     * @brief Enciende el canal verde actualizando su estado interno.
+     */
+    void encenderVerde();
+
+    /**
+     * @brief Apaga el canal verde actualizando su estado interno.
+     */
+    void apagarVerde();
+
+    /**
+     * @brief Enciende el canal azul actualizando su estado interno.
+     */
+    void encenderAzul();
+
+    /**
+     * @brief Apaga el canal azul actualizando su estado interno.
+     */
+    void apagarAzul();
 };
 
 #endif
